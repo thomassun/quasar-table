@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  // name: 'ComponentName',
+  name: 'HashTag',
   data () {
     return {}
   }
