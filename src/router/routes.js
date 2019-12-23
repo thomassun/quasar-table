@@ -1,6 +1,7 @@
 import Grid from 'pages/Grid'
 import Order from 'pages/Order'
 import GoogleNewsLayout from '../layouts/GoogleNewsLayout'
+import Product from '../pages/Product'
 
 const routes = [
   {
@@ -15,7 +16,12 @@ const routes = [
       {
         path: '/order',
         component: Order
+      },
+      {
+        path: '/product',
+        component: Product
       }
+
     ]
   },
   {
