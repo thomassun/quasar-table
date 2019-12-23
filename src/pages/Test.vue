@@ -9,3 +9,4 @@ export default {
   // name: 'PageName',
 }
 </script>
+// for TEST PURPOSE ONLY
