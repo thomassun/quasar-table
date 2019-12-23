@@ -1,4 +1,5 @@
 import Grid from 'pages/Grid'
+import Order from 'pages/Order'
 import GoogleNewsLayout from '../layouts/GoogleNewsLayout'
 
 const routes = [
@@ -10,6 +11,10 @@ const routes = [
       {
         path: '/grid',
         component: Grid
+      },
+      {
+        path: '/order',
+        component: Order
       }
     ]
   },
