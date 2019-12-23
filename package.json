@@ -16,13 +16,13 @@
     "@quasar/extras": "^1.0.0",
     "axios": "^0.18.1",
     "jweixin-latest": "^1.5.2",
-    "quasar": "^1.0.0",
+    "quasar": "^1.5.11",
     "tributejs": "^4.1.1",
     "vanilla-caret-js": "^1.0.1",
     "vue-tribute": "^1.0.3"
   },
   "devDependencies": {
-    "@quasar/app": "^1.0.0",
+    "@quasar/app": "^1.4.3",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.10.0",

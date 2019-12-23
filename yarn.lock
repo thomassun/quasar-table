@@ -845,10 +845,10 @@
   resolved "https://registry.yarnpkg.com/@positron/stack-trace/-/stack-trace-1.0.0.tgz#14fcc712a530038ef9be1ce6952315a839f466a8"
   integrity sha1-FPzHEqUwA475vhzmlSMVqDn0Zqg=
 
-"@quasar/app@^1.0.0":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@quasar/app/-/app-1.4.2.tgz#3d350c37c203895fdcf47905fb4abf51c74766e9"
-  integrity sha512-5XlcnvvMxgKDSgGl1WtkXAxY2SWyXB4gQpNld7sYUQcoaLZ3EN7yZc+2JySJBQYqQtBnTheQPe+LSobfzVInrQ==
+"@quasar/app@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@quasar/app/-/app-1.4.3.tgz#e231d66be163501864f8fd6af807529124b2cfec"
+  integrity sha512-gYzyz7zQMbvwOyWjkXLZk3HNYr82Q7x7cabZ5/hoJSaAUk8fJNt5tZ4swLWc8xHDxj2a1VzDkFLlkVOrxJ1dUQ==
   dependencies:
     "@quasar/babel-preset-app" "1.1.7"
     "@quasar/fastclick" "1.1.4"
@@ -6852,10 +6852,10 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-quasar@^1.0.0:
-  version "1.5.9"
-  resolved "https://registry.yarnpkg.com/quasar/-/quasar-1.5.9.tgz#866651eb425911afbbea7176b1d57ba8969f2fee"
-  integrity sha512-QdTiLNCqumBOOkeODZrDmxJY9KjjEEC1Gp4KPM5fRFEpSNvtHF5m68tt5/4mnCrS6V05ZpetYRizmCAnE9kkzw==
+quasar@^1.5.11:
+  version "1.5.11"
+  resolved "https://registry.yarnpkg.com/quasar/-/quasar-1.5.11.tgz#a1ff4a9389167eec27d465ddc9b7fdecc71cd2a5"
+  integrity sha512-+gyZYZc6qQRDYzfICmbEca6prRZV+nI9T6y7AczQu55w3C8GUNXZ6IF6OHH2Rwh0ftdeqcbOZ+9k8/IOeJFGLQ==
 
 query-string@^4.1.0:
   version "4.3.4"
@@ -8466,6 +8466,11 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+vanilla-caret-js@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vanilla-caret-js/-/vanilla-caret-js-1.0.1.tgz#96cf4e6ee154ca87c813bb4604c90a24555abc35"
+  integrity sha512-s5hXdyIMmeJ1dzfqvZSEGIXGi5xaHrWKsfRZfNUFVqDLwD2TA5QlPJqFhUhZ4D3wgyf6Pjw5ygUbOpj/QePsSw==
 
 vary@~1.1.2:
   version "1.1.2"
