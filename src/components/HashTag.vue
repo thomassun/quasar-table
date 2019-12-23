@@ -7,6 +7,8 @@ export default {
   name: 'HashTag',
   data () {
     return {}
+  },
+  mounted () {
   }
 }
 </script>
