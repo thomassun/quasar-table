@@ -13,10 +13,19 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "file:/tmp/ckeditor5-build-classic",
+    "@ckeditor/ckeditor5-dev-utils": "^12.0.5",
+    "@ckeditor/ckeditor5-dev-webpack-plugin": "^8.0.5",
+    "@ckeditor/ckeditor5-editor-classic": "^16.0.0",
+    "@ckeditor/ckeditor5-essentials": "^16.0.0",
+    "@ckeditor/ckeditor5-paragraph": "^16.0.0",
+    "@ckeditor/ckeditor5-vue": "^1.0.1",
     "@quasar/extras": "^1.0.0",
     "axios": "^0.18.1",
     "jweixin-latest": "^1.5.2",
+    "postcss-loader": "^3.0.0",
     "quasar": "^1.5.11",
+    "raw-loader": "^0.5.1",
     "tributejs": "^4.1.1",
     "vanilla-caret-js": "^1.0.1",
     "vue-tribute": "^1.0.3"

@@ -1,222 +1,70 @@
 <template>
   <div class="q-pa-md">
-    <q-table
-      :data="data"
-      :columns="columns"
-      row-key="name"
-    >
-      <template v-slot:body-cell-actions="{ row }">
-        <q-td>
-          <q-btn flat unelevated round icon="edit" size="xs" @click="editRow(row)"/>
-          <q-btn flat unelevated round icon="delete" size="xs" @click="deleteRow(row.name)"/>
-        </q-td>
-      </template>
-    </q-table>
-    <div class="complet project">
-      sdfhiass
+    <div>
+      <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
     </div>
-
+    <div>
+      {{ editorData }}
+    </div>
   </div>
 </template>
 
 <script>
+import CKEditor from '@ckeditor/ckeditor5-vue'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 export default {
+  components: {
+    ckeditor: CKEditor.component
+  },
   data () {
-    let jweixin = this.$wx
     return {
-      data: [
-        {
-          name: 'Frozen Yogurt',
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
-          sodium: 87,
-          calcium: '14%',
-          iron: '1%'
-        },
-        {
-          name: 'Ice cream sandwich',
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3,
-          sodium: 129,
-          calcium: '8%',
-          iron: '1%'
-        },
-        {
-          name: 'Eclair',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          sodium: 337,
-          calcium: '6%',
-          iron: '7%'
-        },
-        {
-          name: 'Cupcake',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          sodium: 413,
-          calcium: '3%',
-          iron: '8%'
-        },
-        {
-          name: 'Gingerbread',
-          calories: 356,
-          fat: 16.0,
-          carbs: 49,
-          protein: 3.9,
-          sodium: 327,
-          calcium: '7%',
-          iron: '16%'
-        },
-        {
-          name: 'Jelly bean',
-          calories: 375,
-          fat: 0.0,
-          carbs: 94,
-          protein: 0.0,
-          sodium: 50,
-          calcium: '0%',
-          iron: '0%'
-        },
-        {
-          name: 'Lollipop',
-          calories: 392,
-          fat: 0.2,
-          carbs: 98,
-          protein: 0,
-          sodium: 38,
-          calcium: '0%',
-          iron: '2%'
-        },
-        {
-          name: 'Honeycomb',
-          calories: 408,
-          fat: 3.2,
-          carbs: 87,
-          protein: 6.5,
-          sodium: 562,
-          calcium: '0%',
-          iron: '45%'
-        },
-        {
-          name: 'Donut',
-          calories: 452,
-          fat: 25.0,
-          carbs: 51,
-          protein: 4.9,
-          sodium: 326,
-          calcium: '2%',
-          iron: '22%'
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          sodium: 54,
-          calcium: '12%',
-          iron: '6%'
+      editor: ClassicEditor,
+      editorData: '<p>Content of the editor.</p>',
+      editorConfig: {
+        mention: {
+          feeds: [
+            {
+              marker: '@',
+              feed: [
+                {
+                  id: '@Barney',
+                  name: '张三'
+                },
+                {
+                  id: '@Marshall',
+                  name: '王某某'
+                }
+              ],
+              minimumCharacters: 0,
+              itemRenderer: this.customItemRenderer
+            },
+            {
+              marker: '#',
+              feed: ['#客户1', '#客户2'],
+              minimumCharacters: 0
+            }
+
+          ]
         }
-      ],
-      columns: [
-        {
-          name: 'name',
-          required: true,
-          label: 'Dessert (100g serving)',
-          align: 'left',
-          field: row => row.name,
-          format: val => `${val}`,
-          sortable: true,
-          classes: 'bg-grey-2 ellipsis',
-          style: 'max-width: 100px',
-          headerClasses: 'bg-primary text-white'
-        },
-        { name: 'actions', label: 'Actions', sortable: false },
-        { name: 'calories', align: 'center', label: 'Calories', field: 'calories', sortable: true },
-        { name: 'fat', label: 'Fat (g)', field: 'fat', sortable: true },
-        { name: 'carbs', label: 'Carbs (g)', field: 'carbs' },
-        { name: 'protein', label: 'Protein (g)', field: 'protein' },
-        { name: 'sodium', label: 'Sodium (mg)', field: 'sodium' },
-        {
-          name: 'calcium',
-          label: 'Calcium (%)',
-          field: 'calcium',
-          sortable: true,
-          sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
-        },
-        {
-          name: 'iron',
-          label: 'Iron (%)',
-          field: 'iron',
-          sortable: true,
-          sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
-        }
-      ],
-      weixin: jweixin
+      }
     }
   },
   methods: {
-    editRow (row) {
-      this.$q.notify({
-        message: `Try to edit data: ${row.name}`,
-        color: 'primary',
-        position: 'top',
-        actions: [
-          {
-            label: 'Dismiss',
-            color: 'white',
-            handler: () => {
-            }
-          }
-        ]
-      })
-    },
-    deleteRow (name) {
-      this.$q.notify({
-        message: `Try to delete data: ${name},${this.$wx}`,
-        color: 'negative',
-        position: 'top',
-        actions: [
-          {
-            label: 'Dismiss',
-            color: 'white',
-            handler: () => {
-            }
-          }
-        ]
-      })
-    }
+    customItemRenderer (item) {
+      const itemElement = document.createElement(('span'))
+      itemElement.classList.add('custom-item')
+      itemElement.id = `mention-list-item-id-${item.id}`
+      itemElement.textContent = `${item.name} `
 
+      const usernameElement = document.createElement('span')
+
+      usernameElement.classList.add('custom-item-username')
+      usernameElement.textContent = `(${item.id.substr(1)})`
+
+      itemElement.appendChild(usernameElement)
+
+      return itemElement
+    }
   }
 }
 </script>
-<style>
-
-  .project.complete{
-    border-left: 4px solid #3cd1c2;
-  }
-  .project.ongoing{
-    border-left: 4px solid #ffaa2c;
-  }
-  .project.overdue{
-    border-left: 4px solid #f83e70;
-  }
-  .v-chip.complete{
-    background: #3cd1c2;
-  }
-  .v-chip.ongoing{
-    background: #ffaa2c;
-  }
-  .v-chip.overdue{
-    background: #f83e70;
-  }
-
-</style>
