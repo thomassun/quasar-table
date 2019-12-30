@@ -1,8 +1,5 @@
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
-const path = require('path')
-const CKEditorWebpackPlugin = require('@ckeditor/ckeditor5-dev-webpack-plugin')
-const { styles } = require('@ckeditor/ckeditor5-dev-utils')
 
 module.exports = function (ctx) {
   return {
@@ -61,7 +58,7 @@ module.exports = function (ctx) {
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
       scopeHoisting: true,
-      // vueRouterMode: 'history', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history'
       showProgress: true,
       gzip: false,
       analyze: false,

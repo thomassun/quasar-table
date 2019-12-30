@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lHh lpR fFf">
     <q-header elevated>
       <q-toolbar>
         <q-btn
@@ -47,20 +47,46 @@
         </q-item>
       </q-list>
     </q-drawer>
-
-    <q-page-container>
+    <q-drawer v-model="rightDrawerOpen"   side="right" overlay elevated>
+      <div class="q-pa-md" id="popupDrawer">
+      {{ rightDrawerContent }}
+      </div>
+    </q-drawer>
+    <q-page-container v-on:mentionClicked.capture="onMentioned">
       <router-view />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
+import Vue from 'vue'
+import { QAvatar } from 'quasar'
 export default {
   name: 'MyLayout',
 
   data () {
     return {
-      leftDrawerOpen: false
+      leftDrawerOpen: false,
+      rightDrawerOpen: false,
+      rightDrawerContent: ''
+    }
+  },
+  methods: {
+    onMentioned (e) {
+      this.rightDrawerContent = e.detail
+      this.rightDrawerOpen = !this.rightDrawerOpen
+      const Constr = Vue.extend({
+        template: `
+  <q-avatar size="23px">
+    <img src="https://cdn.quasar.dev/img/avatar.png">
+  </q-avatar>
+  `,
+        components: {
+          'q-avatar': QAvatar
+        }
+      })
+      new Constr().$mount('#popupDrawer')
+      console.log(e)
     }
   }
 }
