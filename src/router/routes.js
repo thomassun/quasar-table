@@ -1,7 +1,7 @@
-import Grid from 'pages/Grid'
 import Order from 'pages/Order'
 import GoogleNewsLayout from '../layouts/GoogleNewsLayout'
-import Product from '../pages/Product'
+import Cal from '../pages/Cal'
+import TextInput from '../pages/TextInput'
 
 const routes = [
   {
@@ -10,16 +10,20 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Index.vue') },
       {
-        path: '/grid',
-        component: Grid
+        path: '/order',
+        component: Order
+      },
+      {
+        path: '/calendar',
+        component: Cal
       },
       {
         path: '/order',
         component: Order
       },
       {
-        path: '/product',
-        component: Product
+        path: '/text',
+        component: TextInput
       }
 
     ]

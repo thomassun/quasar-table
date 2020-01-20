@@ -36,31 +36,48 @@
             <q-item-label caption>Go home</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" to="/grid">
+        <q-item clickable tag="a" to="/calendar">
           <q-item-section avatar>
             <q-icon name="code" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>Grid</q-item-label>
-            <q-item-label caption>Grid Playground</q-item-label>
+            <q-item-label>Calendar</q-item-label>
+            <q-item-label caption>Calendar</q-item-label>
           </q-item-section>
         </q-item>
+        <q-item clickable tag="a" to="/order">
+          <q-item-section avatar>
+            <q-icon name="code" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Order</q-item-label>
+            <q-item-label caption>Order</q-item-label>
+          </q-item-section>
+        </q-item>
+
       </q-list>
     </q-drawer>
     <q-drawer v-model="rightDrawerOpen"   side="right" overlay elevated>
       <div class="q-pa-md" id="popupDrawer">
+        asdfasf
+        adf
+        adf
+        adsf
+        asdfasf
       {{ rightDrawerContent }}
       </div>
     </q-drawer>
     <q-page-container v-on:mentionClicked.capture="onMentioned">
-      <router-view />
+      <keep-alive include="Order">
+        <router-view />
+      </keep-alive>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import Vue from 'vue'
-import { QAvatar } from 'quasar'
+// import Vue from 'vue'
+// import { QAvatar } from 'quasar'
 export default {
   name: 'MyLayout',
 
@@ -75,18 +92,18 @@ export default {
     onMentioned (e) {
       this.rightDrawerContent = e.detail
       this.rightDrawerOpen = !this.rightDrawerOpen
-      const Constr = Vue.extend({
-        template: `
-  <q-avatar size="23px">
-    <img src="https://cdn.quasar.dev/img/avatar.png">
-  </q-avatar>
-  `,
-        components: {
-          'q-avatar': QAvatar
-        }
-      })
-      new Constr().$mount('#popupDrawer')
-      console.log(e)
+      //     const Constr = Vue.extend({
+      //       template: `
+      // <q-avatar size="23px">
+      //   <img src="https://cdn.quasar.dev/img/avatar.png">
+      // </q-avatar>
+      // `,
+      //       components: {
+      //         'q-avatar': QAvatar
+      //       }
+      //     })
+      //     new Constr().$mount('#popupDrawer')
+      //     console.log(e)
     }
   }
 }
