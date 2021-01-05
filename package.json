@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "jweixin-latest": "^1.5.2",
     "quasar": "^1.5.11",
     "tributejs": "^4.1.1",
